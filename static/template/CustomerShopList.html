@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+        <meta name="viewport"content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <title>123</title>
+    </head>
+<body>
+    <div data-role="page" id="pageone">
+          <div data-role="header">
+              <h1>{{openid}}一键洗车</h1>
+          </div>
+          <div data-role="content">
+              <span class="shopName">{{shopName}}</span><br/>
+              <span class="starRating">  {{starRating}}  </span><br/>
+              <span class="address">  {{address}}  </span><br/>
+              <span class="phone">  {{shopPhone}}  </span><br/>
+              <span class="description"> {{desc}}  </span><br/>
+   			   <a href="#pagetwo" data-rel="dialog">预约</a><br/>
+          </div>
+          <hr/>
+            
+        
+          <div data-role="footer">
+          <h1>页脚文本</h1>
+          </div>
+    </div> 
+    
+    <div data-role="page" id="pagetwo">
+          <div data-role="header">
+            <h1>预约信息</h1>
+          </div>
+        
+          <div data-role="content">
+            <p>“香车驿站”为您预留30分钟空位，请您在此时间内到达！谢谢您的预约。</p>
+            <a href="#pageone">返回页面</a>
+          </div>
+        
+          <div data-role="footer">
+          <h1>页脚文本</h1>
+          </div>
+    </div> 
+
+</body>
+</html>
