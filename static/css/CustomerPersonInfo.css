@@ -1,0 +1,86 @@
+*{
+    list-style-type:none;
+}
+ 
+a:link{text-decoration:none}        /*超链接状态*/
+a:visited{text-decoration:none}    /*超链接被点击过的状态*/
+a:hover{text-decoration:none}     /*鼠标移至超链接上方的状态*/
+a:active{text-decoration:none}     /*鼠标点击超链接时的状态*/
+
+#pageone .page{
+     width:230px;
+     margin:0 auto;
+     margin-top:30px;
+}
+#pageone .page .input-row{
+    padding:5px;
+}
+
+#pageone .page .input-row .input-content{
+    display:inline-block;
+    width:120px;
+}
+#pageone .page .input-row .input-content input{
+    font-size:18px;
+}
+#pageone .page .input-row label{
+    display:inline-block;
+
+}
+
+#pageone .page .input-row .select-left{
+    display:inline-block;
+    float:left;
+    width:50px;
+
+    
+}
+#pageone .page .input-row .select-left select{
+    width:60px;
+}
+#pageone .page .input-row .select-right select{
+    width:60px;
+}
+
+#pageone .page .input-row .input-text{
+    display:inline-block;
+    padding:5px;
+    font-size:18px;
+    text-shadow: 0 -1px 1px #FFFFFF;
+}
+
+input[readonly]{
+  background-color:#FFFFFF;   
+}
+
+#pageone .page .input-row .label-name,.label-phone,.label-carNum{
+    width:120px;
+    font-weight: 900;
+    font-style: italic;
+    padding-left:3px;
+    -moz-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    -webkit-border-radius:7px;
+    border-radius: 7px;
+    behavior: url(ie-css3.htc); 
+}
+
+.input-row .mybtn #myForm,#update{
+    display:inline-block;
+    text-align: center;
+    line-height: 32px;
+    float:right;
+    margin-right: 20px;
+    -moz-border-radius: 7px;
+    -khtml-border-radius: 7px;
+    -webkit-border-radius:7px;
+    border-radius: 7px;
+    behavior: url(ie-css3.htc);
+}
+
+.ui-btn-icon-left{
+    display:inline-block;
+    width:80px;   
+    height:40px;
+    
+}

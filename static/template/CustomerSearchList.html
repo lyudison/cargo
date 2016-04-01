@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+        <meta name="viewport"content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="http://lib.sinaapp.com/js/jquery-mobile/1.3.1/jquery.mobile-1.3.1.css">
+        <link rel="stylesheet" href="/static/css/CustomerShopList.css">
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/CustomerShopList.css">
+        <script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery-mobile/1.3.1/jquery.mobile-1.3.1.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=wZNqARgljDouaTQYxPFEEm7k&v=1.0"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wZNqARgljDouaTQYxPFEEm7k"></script>
+        <script type="text/javascript" src="static/js/CustomerSearchList.js"></script>
+        
+        <title>查询周边</title>
+        <style>
+              .ui-br{
+                width:90%;
+                float:right;
+                height:38px;
+                }
+         
+        </style>
+        <script>
+            var customerId = "{{customerId}}";
+         </script>
+    </head>
+	<body>
+    	  <div data-role="page" id="pageone" >
+            <div class="set-myHeight">
+               <div data-role="header">
+                    <div class="head-left" style="width:70%;display:inline-block;">
+                      <form id="myform" action="/customersearchlist" method="post">
+                          <div data-role="fieldcontain"  style="text-align:center;">
+                              <!-- <label for="search"></label> -->
+                              <input id="openid" type="text" name="openid" value="{{customerId}}" style="display:none;"/>
+                              
+                              <input type="search" name="shop_name" id="search" placeholder="搜索附近洗车店"/>
+                               <!-- <div data-role="button" data-icon="search" data-iconpos="notext" style="display:inline-block;float:right;position:absolute;left:0;margin-top:5px;">搜索</div> -->
+                              <input type="submit" data-inline="true" value="提交" style="visibility:hidden;">
+                          </div>
+                      </form>
+                    </div>
+                    <div class="head-right" style="display:inline-block;float:right;margin:5px;" id="navi_map">
+                            <a onclick='document.location.href="/customermap?lng={{lng}}&lat={{lat}}"' data-role="button" data-icon="arrow-u" id="collect" class="no" style="">地图</a>
+                    </div>
+               </div>
+              
+              <br/>
+              {% for item in items %}
+              <div data-role="content" class="shopinfo" >
+                     <div class="span2">
+                           <a onclick="document.location.href='http://2.cargotest.sinaapp.com/customershopdetail?shopId={{item[4]}}'">
+                              <img data-src="holder.js/300x200"src={{item[5]}} alt="">
+                           </a>
+                      </div>
+                      <div class="f-right">
+                           <span class="shopName"><a onclick="document.location.href='http://2.cargotest.sinaapp.com/customershopdetail?shopId={{item[4]}}'" style="display:inline-block;width:105px;color:#484848;nax-height:36px;">{{item[0]}}</a></span>
+                           <div class="orderOne"> 
+                              {% if item[7] %}
+                                <a onclick="send_msg('{{item[4]}}');"  data-rel="dialog" > 预约</a>
+                              {% else %}
+                               <span style="color:gray;"> 预约</span>
+                              {% end %}
+                          </div>
+                           <br/><br/>
+                          <div onclick="document.location.href='http://2.cargotest.sinaapp.com/customershopdetail?shopId={{item[4]}}'">
+                               <span class="starRating">  路程: {{item[3]}}公里</span><br/>
+                               <span class="starRating">  星级: </span>
+                               <i class="mystar-light"  data-transition="slide" style="width:{{item[1]}}px;">&nbsp;</i>
+                               <i class="mystar-none"  data-transition="slide" style="width:{{item[6]}}px;">&nbsp;</i>
+                          </div>  
+                               <span class="phone">  电话:   {{item[2]}}  </span> 
+                          </div>
+              </div>
+              {% end %}
+
+          </div>
+         
+   		 </div> 
+    
+
+       <div data-role="page" id="successPage">
+              <div data-role="header">
+                <h1>预约信息</h1>
+              </div>
+
+              <div data-role="content" class="order-success">
+                    <span style="margin:50px auto;text-align:center;color:#33CC00;font-size:18px;width:"> 
+                        <p>预约成功</p>
+                        <p>车店将为您预留30分钟,请尽快到达哦。</p> 
+                    </span>
+              </div>
+
+              <div data-role="footer">
+                  <h1><a href="#pageone">返回页面</a></h1>
+              </div>
+       </div>
+
+       <div data-role="page" id="unFinishFailPage">
+              <div data-role="header">
+                <h1>预约信息</h1>
+              </div>
+
+              <div data-role="content" class="order-success">
+                    <span style="margin:50px auto;text-align:center;color:#ff0000;font-size:18px;width:"> 
+                        <p>预约失败</p>
+                        <p>您已经预约了，请在接受服务后再预约吧。</p> 
+                    </span>
+              </div>
+
+              <div data-role="footer">
+                  <h1><a href="#pageone">返回页面</a></h1>
+              </div>
+       </div>
+
+       <div data-role="page" id="noAutoOrderFailPage">
+              <div data-role="header">
+                <h1>预约信息</h1>
+              </div>
+
+              <div data-role="content" class="order-success">
+                    <span style="margin:50px auto;text-align:center;color:#ff0000;font-size:18px;width:"> 
+                        <p>预约失败</p>
+                        <p>其他用户已经抢先预约了，再去看看其他店吧。</p> 
+                    </span>
+              </div>
+
+              <div data-role="footer">
+                  <h1><a href="#pageone">返回页面</a></h1>
+              </div>
+       </div>
+
+       <div data-role="page" id="unsetPlateNumFailPage">
+              <div data-role="header">
+                <h1>预约信息</h1>
+              </div>
+
+              <div data-role="content" class="order-success">
+                    <span style="margin:50px auto;text-align:center;color:#ff0000;font-size:18px;width:"> 
+                        <p>预约失败</p>
+                        <p>在个人信息中填写了车牌号才能预约哦。</p> 
+                    </span>
+              </div>
+
+              <div data-role="footer">
+                  <h1><a href="#pageone">返回页面</a></h1>
+              </div>
+       </div>
+
+       <div data-role="page" id="breakRecordFailPage">
+              <div data-role="header">
+                <h1>预约信息</h1>
+              </div>
+
+              <div data-role="content" class="order-success">
+                    <span style="margin:50px auto;text-align:center;color:#ff0000;font-size:18px;width:"> 
+                        <p>预约失败</p>
+                        <p>您最近一天内有违约记录。</p> 
+                    </span>
+              </div>
+
+              <div data-role="footer">
+                  <h1><a href="#pageone">返回页面</a></h1>
+              </div>
+       </div>
+
+
+
+	</body>
+</html>

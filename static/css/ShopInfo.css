@@ -1,0 +1,72 @@
+body{margin:0px; background: #ffffff;}
+h1 {font-family:"Arial", "Tahoma", "黑体", "微软雅黑"; margin:0px}
+p {font-family:"Arial", "Tahoma", "黑体", "微软雅黑"; }
+h2 {display: inline;}
+h3 {display: inline;line-height: 20px;}
+hr{border:1px solid #ed6639;margin:0px;}
+
+div#container{min-width: 1200px; background-image: url("x.jpg");background-repeat: repeat-y;background-position: center;width: 100%}
+div#header {background-color:#7f909a; width: 96%; height: 75px; padding-right: 2%; padding-left: 2%; text-align: center;}
+div#content {margin: 20px auto; width: 950px; height: 700px; background-color: #fefefe;}
+div#footer {background-color:#cccccc;clear:both;text-align:center;height: 100px; margin:0px;padding: 15px; padding-right: 80px}
+
+/*页眉----------------------------------------------*/
+img#logo{width: 200px; height: 65px; float: left;margin-top: 10px}
+table#page_title{margin: auto;padding-top: 10px;display: inline-block;}
+h1#title {display: inline;color: #fff}
+img#set_logo{width: 50px; height: 50px;}
+img#back{width: 55px; height: 55px; float: right;margin-right: 20px;cursor: pointer;;margin-top: 10px}
+/*页眉----------------------------------------------*/
+
+/*设置部分----------------------------------------------*/
+div#set_menu {background-color:#EEEEEE;height:650px;width:200px;float:left;padding-top: 50px}
+div.set_menu_item {background-color: #afc0ca;cursor:pointer; margin-top: 15px;height: 55px; text-align: center;line-height: 55px}
+.set_menu_item h4{color: #344444}
+
+div#info_content {background-color:#fafafa;height:670px;width:710px;float:left; padding: 15px 20px; }
+div#image_content {background-color:#fafafa;height:670px;width:710px;float:left; padding: 15px 20px; display: none;}
+div#account_content {background-color:#fafafa;height:670px;width:710px;float:left; padding: 15px 20px; display: none;}
+
+/*车店信息------------------------------------------*/
+div.info_item {background-color:#EEEEEE;height:65px;margin-top: 25px; padding: 10px}
+div.info_item_login {background-color:#EEEEEE;height:35px;margin-top: 25px; padding: 10px}
+div.info_item_discribe {background-color:#EEEEEE;height:175px;margin-top: 25px; padding: 10px}
+
+p.change_button {cursor: pointer;float:right;display: inline;margin: 0px}
+
+div#change_password {background-color:#fefefe;height:140px;padding: 10px;display: none;text-align: center;}
+#password_table {margin: auto;text-align: right;}
+#password_table td {}
+p#slideup_password_button{cursor: pointer;float: right;}
+
+div#change_tel {background-color:#fefefe;height:38px;padding: 10px;display: none;text-align: center;}
+p#slideup_tel_button{cursor: pointer;float: right;}
+
+div#info_discribe{width: 650px; height: 200px}
+textarea#discribe_area{width:650px;height:125px;resize:none;background:transparent;border-style:none; overflow:hidden;
+font-size: 17px}
+input#discribe_save_button{display: none;}
+input#discribe_cancel_button{display: none;}
+/*------------------------------------------------------*/
+
+/*照片-------------------------------------------------*/
+div#image_show {background-color:#fafafa; height: 400px; width: 100%;padding: 0px; margin: 10px 0px;text-align: center;}
+img#image_left {width: 45px; height: 80px;float: left;margin-top: 160px}
+img#image_right {width: 45px; height: 80px;float: right;margin-top: 160px}
+img.images {width: 620px; height: 400px;float: left;}
+
+div#image_submit {width: 480px; height: 22px;margin: 0px auto; text-align: center;}
+p#change_image_button{cursor: pointer;}
+div#change_image{width: 480; height: 40px; margin: 0px auto;display: none;text-align: center;}
+input#imagepath{display: none;}
+/*------------------------------------------------------*/
+
+/*账号信息-------------------------------------------------*/
+div#change_phone {background-color:#fefefe;height:38px;padding: 10px;display: none;text-align: center;}
+p#slideup_phone_button{cursor: pointer;float: right;}
+/*---------------------------------------------------------*/
+
+/*页脚----------------------------------------------*/
+div#copyright{float:left; margin-left:30px; width: 250px;height: 100px;}
+div#about{float:right; margin-left:50px; width: 120px;height: 100px;font-size: 12px}
+/*--------------------------------------------------*/

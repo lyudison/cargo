@@ -1,0 +1,35 @@
+body{margin:0px; background: #ffffff;}
+hr{border:1px solid #ed6639;margin:0px;}
+p{font-family:"Arial", "Tahoma";}
+
+div#container{min-width: 1200px;center;width: 100%}
+div#header {background-color:#7f909a; width: 96%; height: 75px; padding-right: 2%; padding-left: 2%; text-align: center;}
+div#content {margin-top: 20px; margin-bottom: 25px; margin-right: auto; margin-left: auto; width: 750px; height: 750px; text-align: center; 
+	background-color: #fefbfe; border:1px solid #888888;}
+div#footer {background-color:#cccccc;clear:both;text-align:center;height: 100px; margin:0px;padding: 15px; padding-right: 80px}
+
+/*页眉----------------------------------------------*/
+img#logo{width: 200px; height: 65px; float: left;margin-top: 10px}
+table#page_title{margin: auto;padding-top: 10px;display: inline-block;}
+h1#title {display: inline;color: #fff}
+img#set_logo{width: 50px; height: 50px;}
+img#back{width: 55px; height: 55px; float: right;margin-right: 20px;cursor: pointer;;margin-top: 10px}
+/*页眉----------------------------------------------*/
+
+/*注册内容---------------------------------------------------*/
+div.register_item {width: 520px; height: 35px; margin: 10px auto 0px auto; text-align: right;line-height: 35px}
+.register_item p{color: #555555; display: inline;font-size: 18px; font-weight: bold;}
+.register_item input{width: 225px; font-size: 15px}
+div.error_hint {background-color: #aaf; width: 160px; height: 100%; float: right;opacity: 0}
+
+p.register_hint{font-size: 12px; color: #888888; display: inline;}
+
+/*注册按钮*/
+div#submit_area {height: 50px; margin-top: 10px}
+input#submit_button {width: 100px; height: 20px}
+/*-----------------------------------------------------------*/
+
+/*页脚----------------------------------------------*/
+div#copyright{float:left; margin-left:30px; width: 250px;height: 100px;}
+div#about{float:right; margin-left:50px; width: 120px;height: 100px;font-size: 12px}
+/*--------------------------------------------------*/

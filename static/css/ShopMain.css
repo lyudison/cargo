@@ -1,0 +1,88 @@
+body{margin:0px; background: #f0f8f8}
+p{font-family: "Arial", "Tahoma", "黑体", "微软雅黑"; }
+
+
+div#container{min-width: 1200px;}
+div#business {height:450px;width:100%}
+div#list {min-height:150px;width:60%;padding: 20px 5% 35px 5%; margin-left: auto; margin-right: auto;
+  /*background-image: url("zz.jpg");background-repeat: repeat-y;background-position: center;*/}
+div#comment {min-height:150px;width:60%;padding:20px 5% 35px 5%; margin-left: auto; margin-right: auto;
+/*  background-image: url("3.png");background-repeat: repeat-y;background-position: center;*/}
+div#footer {background-color:#cccccc;clear:both;text-align:center;height: 100px; margin:0px;padding: 15px; padding-right: 80px}
+
+p#t{font-family:"Arial", "Tahoma", "黑体", "微软雅黑"; size:20px; color:#ffFFff; display: inline;}
+p#tt{font-family:"Arial", "Tahoma", "黑体", "微软雅黑"; color:#ffFFff;}
+span#tt{font-family:"Arial", "Tahoma", "黑体", "微软雅黑"; color:#ffFFff;}
+
+/*这里的css用于div#business-------------------------------*/
+img#view{height: 450px; width: 100%;}
+
+div#header {width:100%; height: 110px;padding-top: 10px;
+  background-color:rgba(0,0,0,0.5); background-color:#000\9; filter:alpha(opacity=50); margin-top: -450px; overflow: visible; position: relative;}
+div#title{width: 750px;height: 110px; margin-left: 50px;float: left;}
+span#logo{font-size: 50px;}
+span#server_name{font-size: 25px;}
+img.bussiness_info{width:55px; height:55px; margin-right: 45px; float: right;margin-top: 20px;cursor: pointer;}
+
+div.do_bussiness{;width: 450px; height: 150px;padding: 10px; position: absolute;margin-top: 0px; margin-left: 750px}
+div#count{border:1px solid #7f909a; background-color: #ffFFff;width: 150px; height: 75px;float: left;margin-left: 10px;text-align: right;}
+input#count_button{font-family:"黑体"; width: 75px; height: 75px; float: left;font-size: 60px;margin-left: 10px}
+p#counter{font-family:"Arial", "Tahoma", "黑体", "微软雅黑"; font-size: 70px; color:#000000; display: inline;}
+input#close_button{width: 75px; height: 45px; float: left;font-size: 15px;margin-left: 10px}
+/*---------------------------------------------------------*/
+
+div#list_menu{width: 350px}
+span#menu_coming{cursor: pointer;color: #ed6639}
+span#menu_finish{cursor: pointer;color: #7f909a}
+span#menu_seperate{font-weight:bold;color:#7f909a;margin-left: 10px;margin-right: 10px}
+
+div#table_coming{width: 1000px;}
+table.arrive{width: 750px;}
+.arrive th{width: 150px; height: 35px; padding-bottom: 20px; font-weight: bolder;text-align: left;}
+.arrive td{width: 150px; height: 35px; padding-bottom: 20px; font-weight: bolder;}
+
+p#arrive_null{color: #ed6639; font-size: 20px; display: inline;}
+
+/*完成列表-------------------------------------*/
+div.time_select{}
+
+div#table_finish{width: 1000px;display: none;}
+div.time_select{margin-bottom: 15px}
+.time_select p{display: inline;}
+
+p#finish_null{color: #ed6639; font-size: 20px; display: inline;}
+/*---------------------------------------------*/
+
+/*评论------------------------*/
+div.comment_item{width: 750px; height: 135px;border:1px solid #7f909a; padding: 10px 10px; margin-bottom: 15px; background-color: #fefefe}
+div.comment_author{width: 600px; height: 30px; float: left;}
+div.comment_score{width: 100px; height: 50px;float: right;}
+div.comment_content{width: 390px; height: 100%; float: left;}
+.comment_author p{font-size: 14px; color: #666666; display: inline;}
+.comment_author h5{font-size: 16px; color: #888888; display: inline;}
+.comment_score p{font-size: 16px; color: #333333; display: inline;}
+.comment_score span{font-size: 25px; color: #ed6639; display: inline;}
+.comment_content p{font-size: 15px; color: #333333;display: inline;}
+
+
+/*----------------------------*/
+
+/*页脚----------------------------------------------------------------------------------------*/
+div#copyright{float:left; margin-left:30px; width: 250px;height: 100px;}
+div#about{float:right; margin-left:50px; width: 120px;height: 100px;font-size: 12px}
+/*页脚----------------------------------------------------------------------------------------*/
+
+hr{border:1px solid #ed6639;margin:0px}
+h2.menu{font-size:35px;font-weight:bold;color:#ed6639;font-weight: bold;font-family:"Arial", "Tahoma", "黑体", "微软雅黑"; }
+
+
+h1 {margin-bottom:0;font-family:"Arial", "Tahoma", "微软雅黑", "雅黑"; color:#ffFFff; display: inline;}
+
+h2#t {margin-bottom:0;font-family:"Arial", "Tahoma", "微软雅黑", "雅黑"; color:#ffFFff;font-size: 19px;}
+
+
+
+/*用于a.html的测试*/
+.testa_background{position:absolute; width:100%; height:100%; z-index:-1}
+div#testa_title{width: 80%; height: 500px}
+

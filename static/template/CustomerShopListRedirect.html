@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+        <meta name="viewport"content="width=device-width, initial-scale=1"/>
+        <script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+        <title>快捷洗车</title>
+        <style>
+            body{
+                background:#3D3D3D;
+            }
+            #pageone .load_img{
+                width:103px;
+                height:103px;
+                margin:0 auto;
+                margin-top:100px;
+            }
+        </style>
+    </head>
+    <body>
+          <div data-role="page" id="pageone" >
+              <div class="load_img">
+
+                    <img src="/static/img/loading.gif" alt="loading"/>
+                    <h2 style="color:white;">加载中...</h2>
+
+              </div>
+          </div>
+    </body>
+</html>
+<script>
+    var openid = "{{openid}}";
+    rePost();
+    
+    function rePost(){
+        $.post("http://2.cargotest.sinaapp.com/customershoplist",
+            {
+              openid:openid
+            },
+            function (data, status) {
+                if(data=="has no location") {
+                    setTimeout(rePost, 1000); 
+                }
+                else {
+                    document.write(data);
+                    document.close();                     
+                }
+            }
+        );
+    }
+</script>

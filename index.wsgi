@@ -3,51 +3,61 @@ import tornado.wsgi
 import sae
 import sys
 sys.path.append("Handler/")
-import WechatMessageHandler
-import CustomerShopListHandler
-import ShopLoginHandler
-import ShopMainHandler
-import WechatValidHandler
 
-settings = {
+from CustomerNavigateHandler import CustomerNavigateHandler
+from CustomerCommentHandler import CustomerCommentHandler
+from CustomerFavorHandler import CustomerFavorHandler
+from CustomerPersonInfoHandler import CustomerPersonInfoHandler
+from CustomerServiceRecordHandler import CustomerServiceRecordHandler
+from CustomerShopDetailHandler import CustomerShopDetailHandler
+from CustomerShopListHandler import CustomerShopListHandler
+from CustomerSearchListHandler import CustomerSearchListHandler
+from CustomerMapHandler import CustomerMapHandler
+from CustomerOrderHandler import CustomerOrderHandler
+from CustomerHelpHandler import CustomerHelpHandler
 
-}
+from ShopHelpHandler import ShopHelpHandler
+from ShopLoginHandler import ShopLoginHandler
+from ShopMainHandler import ShopMainHandler
+from ShopRegisterHandler import ShopRegisterHandler
+from ShopInfoHandler import ShopInfoHandler
+
+from WechatMessageHandler import WechatMessageHandler
+
+from RecordRefreshHandler import RecordRefreshHandler
+# from WechatValidHandler import WechatValidHandler
+
+settings = dict(
+    cookie_secret="61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
+    login_url="/shoplogin",
+    # "xsrf_cookies":True
+    # debug=True,
+)
 
 app = tornado.wsgi.WSGIApplication([
-    (r"/wechat", WechatMessageHandler.WechatMessageHandler),
-    (r"/test", CustomerShopListHandler.WashCarHandler),
-	(r"/shopmain", ShopMainHandler.ShopMainHandler),
-	(r"/shoplogin", ShopLoginHandler.ShopLoginHandler),
-    #(r"/wechat", WechatValidHandler)    # use for verify wechat 
-], cookie_secret="61oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=")
+    #customer
+    (r"/customernavigate", CustomerNavigateHandler),
+    (r"/customercomment", CustomerCommentHandler),
+    (r"/customerfavor", CustomerFavorHandler),
+    (r"/customerpersoninfo", CustomerPersonInfoHandler),
+    (r"/customerservicerecord", CustomerServiceRecordHandler),
+    (r"/customershopdetail", CustomerShopDetailHandler),
+    (r"/customershoplist", CustomerShopListHandler),
+    (r"/customersearchlist", CustomerSearchListHandler),
+    (r"/customermap", CustomerMapHandler),
+    (r"/customerorder", CustomerOrderHandler),
+    (r"/customerhelp", CustomerHelpHandler),
+    #shop
+	(r"/shophelp", ShopHelpHandler),
+	(r"/shoplogin", ShopLoginHandler),
+    (r"/shopmain", ShopMainHandler),
+    (r"/shopregister", ShopRegisterHandler),
+    (r"/shopinfo", ShopInfoHandler),
+    #wechat
+    (r"/wechat", WechatMessageHandler),
+    #record refresh
+    (r"/recordrefresh", RecordRefreshHandler)
+    # (r"/wechat", WechatValidHandler)    # use for verify wechat 
+], **settings)
 
 application = sae.create_wsgi_app(app)
-
-#Wechat ACCESS_TOKEN gKw_tLDvucl85w-yPs7E0rlt-S6a7fZbtTodeA0bVU1wTtkaUSiNsUZLo3iZRrKe_J00OG8qSW5ucjRE_mijlg
-# {
-#     "button":[
-#     {
-#         "type": "click", 
-#         "name": "一键洗车", 
-#         "key": "QUICKWASHING"
-#     }, 
-#     {
-#         "type": "view", 
-#         "name": "导航", 
-#         "url": "http://1.baidumapapitest.sinaapp.com/"
-#     }, 
-#     {
-#         "name": "我的车GO", 
-#         "sub_button": [
-#         {
-#             "type": "click", 
-#             "name": "使用说明", 
-#             "key": "HANDBOOK"
-#         }, 
-#         {
-#             "type": "view", 
-#             "name": "收藏车店", 
-#             "url": "http://www.baidu.com/"
-#         }]
-#     }]
-# }

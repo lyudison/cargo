@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" type="text/css" href="/static/css/ShopInfo.css"/>
+
+<script type="text/javascript" src="/static/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="/static/js/shopinfo.js"></script>
+
+</head>
+
+<body>
+
+<div id="container">
+
+	<div id="header">
+		<img src="/static/img/logo/cargo logo white 200X60.png" id="logo">
+		<table id="page_title">
+			<tr>
+				<td><img src="/static/img/icon/ShopInfo_titleicon.png" id="set_logo"></td>
+				<td><h1 id="title">车店信息设置</h1></td>
+			</tr>
+		</table>
+		<img src="/static/img/icon/back_icon.png" id="back">
+	</div>
+
+	<hr/>
+
+	<div id="content">
+		<div id="set_menu">
+			<div id="menu_info" class="set_menu_item"><h4>车店信息</h4></div>
+			<div id="menu_image" class="set_menu_item"><h4>车店照片</h4></div>
+			<div id="menu_account" class="set_menu_item"><h4>账户信息</h4></div>
+		</div>
+
+		<div id="info_content">
+			<h2>车店信息</h2>
+			<div class="info_item"><h3>车店名称</h3><p>{{shop[0]}}</p></div>
+			<div class="info_item"><h3>车店地址</h3><p>{{shop[1]}}</p></div>
+			<div class="info_item"><h3>联系电话</h3><p id="change_tel_button" class="change_button">[修改]</p><p>{{shop[2]}}</p></div>
+			<div id="change_tel">
+				<form action="/shopinfo" method="post">
+					电话：<input type="text" name="shop_phone">
+					<input type="submit" value="保存">
+					<p id="slideup_tel_button">[收起]</p>
+				</form>
+			</div>
+			<div class="info_item_discribe">
+				<h3>车店描述</h3><p id="change_discribe_button" class="change_button">[修改]</p>
+				<div id="info_discribe">
+					<form action="shopinfo" method="post">
+						<p><textarea id='discribe_area' readonly="readonly" name="description">{{shop[3]}}</textarea></p>
+						<input id="discribe_save_button" type="submit" value="保存">
+						<input id="discribe_cancel_button" type="submit" value="取消">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="image_content">
+			<h2>车店照片</h2>
+			<div id="image_show">
+				<img src="/static/img/icon/left_arrow.png" id="image_left">
+				<!-- 这里面的图片是要加载的3张 -->
+				<img src="{{imgUrls[0]}}" class="images" id="image_this">
+				<img src="{{imgUrls[1]}}" class="images" id="image_next">
+				<img src="{{imgUrls[2]}}" class="images" id="image_last">
+				<!-- 这里面的图片是要加载的3张 -->
+				<img src="/static/img/icon/right_arrow.png" id="image_right">
+			</div>
+			<div id="image_submit">
+				<p id="change_image_button">[替换当前图片]</p>
+			</div>
+			<div id="change_image">
+				<form action="/shopinfo" method="post" enctype='multipart/form-data'>
+				<input type="file" id="imagepath_button" name="shop_image">
+				<input id="imagepath" type="text" name="replace_index">
+				<input id="save_image_button" type="submit" value="保存">
+				<input id="cancel_image_button" type="button" value="取消">
+				</form>
+			</div>
+			<p>可以上传3张照片，建议上传车店店面照片，店内照片，以及工作间照片。</p>
+		</div>
+		<div id="account_content">
+			<h2>账户信息</h2>
+			<div class="info_item_login"><h3>登录名:{{username}}</h3><p id="change_password_button" class="change_button">[修改密码]</p></div>
+			<div id="change_password">
+				<table id="password_table">
+					<tr>
+						<td>当前密码&nbsp;&nbsp;</td>
+						<td><input type="password"></td>
+					</tr>
+					<tr>
+						<td>新密码&nbsp;&nbsp;</td>
+						<td><input type="password"></td>
+					</tr>
+					<tr>
+						<td>确认密码&nbsp;&nbsp;</td>
+						<td><input type="password"></td>
+					</tr>
+				</table>
+				<input type="button" value="保存">
+				<p id="slideup_password_button">[收起]</p>
+			</div>
+			<form action="/shopinfo" method="post">
+			<div class="info_item">
+				<h3>负责人信息</h3>
+				<p id="change_phone_button" class="change_button">[修改电话]</p>
+				<p>负责人：{{owner_info[0]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：{{owner_info[1]}}</p>
+			</div>
+			<div id="change_phone">
+				电话：<input type="text" name="owner_phone">
+				<input type="submit" value="保存">
+				<p id="slideup_phone_button">[收起]</p>
+			</div>
+			</form>
+		</div>
+	</div>
+	<hr/>
+	<div id="footer">
+		<div id="copyright">
+				<p>车GO汽车服务平台保留所有权利</p>
+			</div>
+			<div id="about">
+				<h3>帮助中心</h3>
+				<p>问题反馈</p>
+				<p>用户协议</p>
+			</div>
+			<div id="about">
+				<h3>关于车GO</h3>
+				<p>关于平台</p>
+				<p>人才招聘</p>
+			</div>
+	</div>
+
+</div>
+
+</body>
+</html>

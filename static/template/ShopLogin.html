@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<title>
+	车GO首页
+</title>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" type="text/css" href="/static/css/ShopLogin.css"/>
+<script type="text/javascript" src="/static/js/jquery-1.11.1.js"></script>
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="header">
+			<div id="logo_containner">
+				<h1 id="logo">车GO <span id="slogan">简单 快捷 提升业绩， 轻松 高效 管理车店</span></h1>
+			</div>
+			<div id="header_hint_containner">
+				<h2 class="header_hint">
+				<span><a href="http://www.baidu.com">了解车GO</a></span>
+				 | <span><a href="http://www.baidu.com">战略合作</a></span>
+				 | <span><a href="http://www.baidu.com">帮助</a></span>
+				</h1>
+			</div>
+		</div>
+
+		<div id="content">
+			<div id="login_container">
+				<form id="login" action="/shoplogin" method="post">
+					<div id="login_name_area">
+						<input id="login_username" class="login_text" type="text" name="username" placeholder="用户名">
+					</div>
+					<div id="login_key_area">
+						<input id="login_password" class="login_text" type="password" name="password" placeholder="密码">
+					</div>
+					<div id="login_response"></div>
+					<div id="login_button_area">
+						<div id="auto_login">
+							<input  type="checkbox"/><span id="">记住密码</span>
+						</div>
+						<div id="forget_key">
+							<a href="http://www.baidu.com"><span>忘记密码？</span></a>
+						</div>
+						<br/>
+						<input id="login_button" type="button" value="登录">
+					</div>
+					<div id="login_hint">
+						<!-- <p>建议使用Chrome浏览器登录</p> -->
+					</div>
+				</form>
+				<div id="register_container">
+					<a href="/shopregister"><h1 id="register_free">免费注册</h1></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div id="copyright">
+				<p>车GO汽车服务平台保留所有权利</p>
+			</div>
+			<div class="about">
+				<h3>帮助中心</h3>
+				<p>问题反馈</p>
+				<p>用户协议</p>
+			</div>
+			<div class="about">
+				<h3>关于车GO</h3>
+				<p>关于平台</p>
+				<p>人才招聘</p>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#login_button").click(function(){
+		$.ajax({
+   			type: "POST",
+   			url: "/shoplogin",
+   			data: {
+   				username:document.getElementById('login_username').value,
+   			 	password:document.getElementById('login_password').value},
+   			success: function(data){
+   				if(data=="login_succeed"){
+   					window.location.href="/shopmain"
+   				}
+   				if(data=="login_fail"){
+   					alert("用户名密码错误");
+   				}
+   			}
+		});
+	});	
+});
+</script>

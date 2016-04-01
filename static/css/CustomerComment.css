@@ -1,0 +1,78 @@
+h2{
+    text-align: center;
+}
+.control-group{
+    width:80%;
+    margin: 20px auto;
+
+    padding:10px;
+}
+#pageone .control-group .starComment{
+    display:inline-block;
+    float:left;
+    margin:16px 0;
+    line-height:40px;
+}          
+.control-group .Allstars{
+    padding-left:50px;
+    padding-bottom:10px;    
+}          
+.control-group .btn-control{
+    height:40px;
+}                    
+.control-group .btn-control .btn{
+    display:inline-block;
+    float:right;    
+}
+.control-group .controls{                
+    width:100%;                
+    margin: 0 auto;            
+}                          
+button.ui-btn{               
+    width:10%;               
+    float:right;                
+    padding-right:40px;            
+}
+.ui-btn-text{
+    font-size: 10px;
+}                           
+ul {                    
+    list-style:none;            
+}           
+.stars{                
+    padding-left: 0;                
+    margin-left: 20px;            
+}            
+.no{               
+    margin-left:0;                
+    float:left;                
+    width:26px;                
+    height: 26px;                
+    background-image:url(/static/img/star-none.png);            
+}            
+.yes{                 
+    margin-left: 0;                
+    float:left;               
+    width:26px;               
+    height: 26px;               
+    background-image:url(/static/img/star-light.png);            
+}
+
+#successSubmitPage .order-success{
+    display:block;
+    width:120px;
+    margin:50px auto;
+    font-size:20px;
+    color:#33CC00;
+    line-height:20px;
+}
+
+#isCommentedPage .orderedPage span{
+    display:block;
+    width:200px;
+    margin:50px auto;
+    font-size:20px;
+    color:#33CC00;
+    line-height:20px;
+    text-align: right;
+}

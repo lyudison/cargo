@@ -1,2 +1,6 @@
 name: cargotest
 version: 2
+cron:
+- description: cron_test
+  url: /recordrefresh
+  schedule: "*/1 * * * *"

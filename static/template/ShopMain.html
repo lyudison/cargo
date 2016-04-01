@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<title>
+	车GO
+</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" type="text/css" href="/static/css/ShopMain.css"/>
+<script type="text/javascript" src="/static/js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="/static/js/shopmain.js"></script>
+
+
+</head>
+
+<body>
+
+	<div id="container">
+
+		<!-- <hr/> -->
+
+		<div id="business">
+			<img src="/static/img/ShopMain_bg.jpg" id="view">
+			<div id="header">
+				<div id="title">
+					<h1><span id="logo">车GO</span><span id="server_name">——{{shop_name}}</span></h1>
+					<h2 id="t">简单 快捷 提升业绩， 轻松 高效 管理车店</h2>
+				</div>
+				<img id="logout" class="bussiness_info" src="/static/img/ShopMain_logout.png" title="退出">
+				<a href="#comment"><img class="bussiness_info" src="/static/img/ShopMain_comment.png" title="查看评论"></a>
+				<a href="/shopinfo"><img src="/static/img/ShopMain_setting.png" class="bussiness_info" title="车店信息"></a>
+			</div>
+			<div class="do_bussiness"><!-- todo(整个接单系统) -->
+				<h2 class="menu">要接几单：</h2>
+				<table align="bottom">
+					<tr >
+						<td><input id="count_button" type="button" value="+" onclick="addCount()"></td>
+						<td><div id="count"><p id="counter">{{auto_order}}</p></div></td>
+						<td><input id="count_button" type="button" value="-" onclick="reduceCount()"></td>
+						<td><input id="close_button" type="button" value="停止抢单" onclick="closeCount()"></td>
+					</tr>
+				</table>
+				<div>
+					<p>请根据车店繁忙情况设置，以免导致预约车主等待，降低本店的信用评级</p>
+					<p>请记得停止营业时点击停止抢单，以防车主继续预约</p>
+				</div>	
+			</div><!-- todo(整个接单系统) -->
+		</div>
+
+		<hr/>
+
+		<div id="list">
+			<div id="list_menu">
+				<h2 class="menu"><span id="menu_coming">即将到店</span><span id="menu_seperate">|</span><span id="menu_finish">已完成</span></h2>
+			</div>
+			<div id="table_coming">
+				<table id="arrive_table" class="arrive" rules="rows">
+				<tr id="table_coming_head">
+					<th>服务类型</th>
+					<th >车牌号</th>
+					<th >车主</th>
+					<th >电话</th>
+					<th >预约时间段</th>
+					<th>估计到达</th>
+					<th ></th>
+
+				</tr>
+				<!-- <tr>
+					<td>洗车</td>
+					<td>粤A88888</td>
+					<td>黄先生</td>
+					<td>13888888888</td>
+					<td>12:00~12:30</td>
+					<td>12:15</td>
+					<td><input type="button" value="已到" onclick="deleteTr(this)"></td>
+				</tr> -->
+				</table>
+				<P id="arrive_null">目前暂无预约订单</P>
+			</div>
+			<div id="table_finish">
+				<div class="time_select">
+					<select id="start_year" size="1" onChange="createSelect()"></select> <!-- todo(设置查询时间段) -->
+					<select id="start_month" size="1" onChange="createSelect();"></select> 
+					<select id="start_day" size="1" ></select>
+					<p>至</p>
+					<select id="end_year" size="1" onChange="createSelect()"></select> 
+					<select id="end_month" size="1" onChange="createSelect();"></select> 
+					<select id="end_day" size="1" ></select><!-- todo(设置查询时间段) -->
+					<input type="submit" value="查看" onclick="doSearch()"><!-- todo(提交查询时间段，将上面的值提交并更新下方列表) -->
+				</div>
+				<table class="arrive" rules="rows">
+				<tr id="table_finish_head">
+					<th>服务类型</th>
+					<th >车牌号</th>
+					<th >车主</th>
+					<th >电话</th>
+					<th >接待时间</th>
+					<th ></th>
+
+				</tr>
+				<!-- <tr>
+					<td>洗车</td>
+					<td>粤BB8888</td>
+					<td>陈先生</td>
+					<td>13888890878</td>
+					<td>2014/07/14/12:30</td>
+					<td><input type="button" value="查看评价" onclick="checkComment(this)"></td>
+				</tr> -->
+				</table>
+				<P id="finish_null">此时间段内没有服务订单</P>
+			</div>
+		</div>
+
+		<hr/>
+		<div id="comment">
+			<div id="list_menu">
+				<h2 class="menu"><span id="menu_selected">评论</span></h2>
+			</div>
+			{% for comment in comments %}
+			<div class="comment_item">
+				<div class="comment_author"><h5>{{comment[0]}}</h5>
+					<p>联系电话：{{comment[1]}}</p>
+					<p>车牌号：{{comment[2]}}</p>
+					<p>服务类型：洗车</p>
+				</div>
+				<div class="comment_score">
+					<p>评级:<span>{{comment[4]}}</span></p>
+				</div>
+				<div class="comment_content"><p>{{comment[3]}}</p></div>
+			</div>
+			{% end %}
+		</div>
+
+		<div id="footer">
+			<div id="copyright">
+				<p>车GO汽车服务平台保留所有权利</p>
+			</div>
+			<div id="about">
+				<h3>帮助中心</h3>
+				<p>问题反馈</p>
+				<p>用户协议</p>
+			</div>
+			<div id="about">
+				<h3>关于车GO</h3>
+				<p>关于平台</p>
+				<p>人才招聘</p>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

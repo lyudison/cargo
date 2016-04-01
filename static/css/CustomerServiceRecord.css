@@ -1,0 +1,218 @@
+*{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+a:link{text-decoration:none}        /*超链接状态*/
+a:visited{text-decoration:none}    /*超链接被点击过的状态*/
+a:hover{text-decoration:none}     /*鼠标移至超链接上方的状态*/
+a:active{text-decoration:none}     /*鼠标点击超链接时的状态*/    
+:focus{curson:pointer;};
+img{vertical-align: middle;}
+p{
+    margin: 0;
+    padding: 0;
+}
+#pageone{
+    background:#dddddd;
+}
+h1{
+    font-size:8px;
+  	font-style:gray;
+}
+.content{
+    padding:25px 0;
+    min-height: 720;
+    width:100%;
+    position: relative;
+    margin:0 auto;
+}
+.content .wrapper{
+    position: relative;
+    width:100%;
+    margin: 0 auto;
+}
+.content .main{
+    background: url("/static/img/line-bg.png") repeat-y 129px 0;
+}       
+.content .main .inside-block{
+    padding-top:50px;           
+}
+.content .main .inside-block .noRecord{
+    width:200px;
+    height:100px;
+    margin:0 auto;
+    margin-top:50px;
+    border:1px solid #909090;
+    background:#B8B8B8;
+}
+.content .main .inside-block .noRecord .noRecordText{
+    display:block;
+    width:180px;
+    line-height:35px;
+    margin:15px auto;
+    color:black;
+    font-size:18px;
+}
+.content .main .title{
+    margin: 0;
+    position: absolute;
+    line-height: 40px;
+    padding-left: 77px;
+    left:110px;
+    top:0;
+    font-size:24px;
+    background: url("/static/img/clock.png") no-repeat left top;
+}
+.content .main .year{
+    margin-top:20px;
+    position: relative;
+    z-index: 100;
+}
+.content .main .year .month{
+    background:#454646;
+    border:1px solid #AAAAAA;
+    display:block;
+    width:75px;
+    margin-left:25px;
+    padding-right:10px;
+    -moz-border-radius: 11px;
+    -khtml-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    behavior: url(ie-css3.htc); 
+}
+.content .wrapper:first-child .main .year.close1 .list{
+    opacity: 0;
+    height: 0!important;
+}
+.content .main .year h2{
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width:60px;
+    padding-right:50px;
+    padding-left:0;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: right; 
+    display:block;
+}
+.content .main .year h2 a{
+    color:#E8E8E8;
+}
+.content .main .year h2 i{
+    display: block;
+    position: relative;
+    height: 0;
+    width:0;
+    left:60px;
+    top:-20px;
+    border-width: 6px;
+    border-style:solid;
+    border-color:#E8E8E8 transparent transparent transparent;
+    transition: .5s;
+    -webkit-transform-origin: 6px 3px;
+}
+.content .main .year .list{
+    /*height: 1000px; */
+     /*动态设置高度*/
+
+    margin:10px 0;
+    position: relative;
+    overflow: hidden;
+    transition:height 1s cubic-bezier(0.025,0.025,0.000,1.115),opacity 1s;
+}
+.content .main .year .list p,ul{
+    padding:0;
+    margin:0;    
+
+}
+.content .main .year .list ul{
+    position:absolute;
+ }
+ .content .main .year .list ul li{
+    background:url("/static/img/circle-h.png") no-repeat 115px 31px;
+    max-width:400px;
+    padding: 30px 0;
+    color: #B2B6CE;
+}
+.content .main .year .list ul li.highlight{
+    background-image: url(/static/img/circle-h.png);
+    overflow: hidden;
+}
+.content .main .year .list ul li.highlight .date{
+}
+.content .main .year .list ul li .date {
+    font-size: 18px;
+    line-height: 32px;
+    float:left;
+    display: block;
+    clear:left;
+    width:100px;
+    text-align: right;
+}
+.content .main .year .list ul li.highlight .intro{
+  	font-size:18px;
+    color:#003377;
+}
+.content .main .year .list ul li .intro {
+    font-size:18px; 
+    line-height: 32px;
+    float: left;
+    display: block;
+    width:130px;
+    margin-left: 70px;
+}
+.content .main .year .list ul li .more {
+    font-size:18px;
+    font-weight:normal ;
+    float: left;
+    display: block;
+    width: 110px;
+    margin-left: 160px;
+    padding:15px;
+    line-height: 24px;
+    border: 1px solid #333434;
+    background-color: #454646;
+    box-shadow: inset 0 1px rgba(0,0,0,0.05);
+    color: #DDDDDD;
+    
+    -moz-border-radius: 11px;
+    -khtml-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    behavior: url(ie-css3.htc); 
+}
+.content .main .year .list ul li {
+    color: #000000;
+}
+.cls {
+    zoom: 1;
+}
+.date-block{
+    float:left;
+    margin:20px;
+    padding:5px;
+    border:1px solid #adcd3c;
+    background:#f2fddb;
+}
+.record-block{
+    overflow:hidden;
+}
+.panel-group{
+    float:right;
+    width:48%;
+    margin:20px;
+}
+.panel-default{
+    border:1px solid #adcd3c;
+    background:#f2fddb;
+}
+.panel-collapse{
+    width:80%;
+    margin:0 auto;
+    border-top:1px solid gray;
+    padding:5px;
+}
+

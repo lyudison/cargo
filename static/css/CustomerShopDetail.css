@@ -1,0 +1,103 @@
+body{
+    line-height: 18px;
+
+}
+a:link{text-decoration:none}        /*超链接状态*/
+a:visited{text-decoration:none}    /*超链接被点击过的状态*/
+a:hover{text-decoration:none}     /*鼠标移至超链接上方的状态*/
+a:active{text-decoration:none}     /*鼠标点击超链接时的状态*/
+
+#pageone .ui-title{
+    margin:0.6em 10%;
+}
+
+#pageone,#pagetwo,#pagethree,#pagefour{
+    background:#DDDDDD;
+}
+
+#pageone .ui-title{
+    margin:0.6em 10%;
+}
+#pageone h1{
+    display:inline-block;
+    width:45%;
+    margin:0 auto;
+    text-align:right;
+}
+#pageone .head-right{
+    display:inline-block;
+    float:right;
+    margin-right:5px;
+    margin-top:5px;
+}
+.no{
+    background-color:black;
+}
+.yes{
+    background-color:#EE7700;
+}
+.content .carousel-inner img{
+    margin:0 auto;
+}
+.content .mycontent{
+    margin:5px auto;
+
+}
+.content .mycontent .address{
+    display:block;
+    padding-left:30px;
+}
+.content .mycontent .description{
+    display:block;
+    padding-left:30px;
+}
+
+.commentNum{
+    margin:0 20px;
+    display:block;padding-left:30px;
+    margin-bottom:15px;
+    border-bottom:1px solid #AAAAAA;
+}
+
+.input-group{
+    padding:15px;
+    margin:0px 30px;
+}
+
+.input-group .input-control{
+     display:inline-block;
+     width:48%;
+     text-align:center;
+     margin:0 auto;
+     font-size:20px;
+     line-height:20px;
+}
+#pagefour .page-content{
+     margin:20px auto;
+
+}
+#pagefour .page-content .commentBorder{
+     margin:0 20px;
+     border-bottom:1px solid #AAAAAA;
+}
+#pagefour .page-content .commentBorder .comment{
+     display:block;
+     padding:0 30px;
+}
+.mystar-light{  
+        background-image: url("/static/img/star-light.png");  /**你的图片，路径是相对于当前使用文件可以访问到的*/  
+        display:inline-block;
+        
+       background-size:18px 18px;  
+       border-radius: 0; 
+        width:54px;
+}  
+.mystar-none{  
+        background-image: url("/static/img/star-none.png");  /**你的图片，路径是相对于当前使用文件可以访问到的*/  
+        display:inline-block;
+        
+       background-size: 18px 18px;  
+       border-radius: 0; 
+        width:36px;
+}
+

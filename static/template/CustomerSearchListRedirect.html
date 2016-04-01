@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport"content="width=device-width, initial-scale=1"/>
+        <script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wZNqARgljDouaTQYxPFEEm7k"></script>
+        <title>查询周边</title>
+
+         <style>
+                body{
+                    background:#3D3D3D;
+                }
+                #pageone .load_img{
+                    width:103px;
+                    height:103px;
+                    margin:0 auto;
+                    margin-top:100px;
+                }
+        </style>
+    </head>
+    <body>
+          <div data-role="page" id="pageone" >
+              <div class="load_img">
+
+                    <img src="/static/img/loading.gif" alt="loading"/>
+                    <h2 style="color:white;">加载中...</h2>
+
+              </div>
+          </div>
+    </body>
+</html>
+<script type="text/javascript">
+// var openid = "{{openid}}";
+// // get the location and send to server
+// if(!navigator.geolocation)
+// {
+//     alert("cannot get current location!");
+// }
+
+// var geolocation = new BMap.Geolocation();
+// geolocation.getCurrentPosition(function (r) { 
+//     if (this.getStatus() == BMAP_STATUS_SUCCESS ) { 
+//         var lng = r.point.lng;
+//         var lat = r.point.lat;
+//         // alert("lng:"+lng+" lat:"+lat);
+//         $.post("/customersearchlist",
+//             {
+//                 lat:lat,
+//                 lng:lng,
+//                 openid:openid
+//             },
+//             function (data, status) {
+//                 // alert("data:"+data);
+//                 document.write(data);
+//                 document.close();
+//             }
+//         );
+//     } 
+// });
+
+</script>
+<script>
+    var openid = "{{openid}}";
+    rePost();
+    
+    function rePost(){
+        $.post("customersearchlist",
+            {
+              openid:openid
+            },
+            function (data, status) {
+                if(data=="has no location") {
+                    setTimeout(rePost, 1000); 
+                }
+                else {
+                    document.write(data);
+                    document.close();                     
+                }
+            }
+        );
+    }
+</script>

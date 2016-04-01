@@ -1,0 +1,56 @@
+ body{
+     line-height: 18px;
+ }
+.ui-content{
+     border-left-width:0;
+}
+#pageone .set-myHeight{
+     min-height: 500px;
+}
+.shopinfo .span2{
+     margin-left:2px;
+     margin-right:2px;
+     padding-right:2px;
+     float:left;
+}
+.shopinfo .span2 a{
+     height:90px;
+
+}
+
+.shopinfo .f-right{
+     margin:0 auto;
+     padding-left:51%;
+}
+
+.shopinfo .f-right .orderOne{
+     display:inline-block;
+     float:right;
+}
+
+.shopinfo{
+     margin:8px;
+     padding-left:4px;
+     border:1px solid #DDDDDD;
+     background-color:#FFFFFF;
+}
+
+#span_dt_dt{
+     border:1px  black;
+     background-color:#FFFFFF;
+}
+
+.shopinfo .mystar-light{  
+     background-image: url("/static/img/star-light.png");  /**你的图片，路径是相对于当前使用文件可以访问到的*/  
+     display:inline-block;
+     background-size: 18px 18px;  
+     border-radius: 0; 
+
+}  
+.shopinfo .mystar-none{  
+     background-image: url("/static/img/star-none.png");  /**你的图片，路径是相对于当前使用文件可以访问到的*/  
+     display:inline-block;
+     background-size: 18px 18px;  
+     border-radius: 0; 
+
+}

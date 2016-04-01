@@ -1,0 +1,50 @@
+body {margin:0px; background: #f1f1f1}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
+h1{display: inline;}
+h2{display: inline;}
+
+div#container{min-width: 1200px;}
+div#header {margin:0px; width:100%; height: 50px; line-height: 50px}
+div#content {height:700px;width:100%; background-image: url("/static/img/Cargo_bg.jpg");background-repeat: repeat-y;background-position: center;}
+div.footer {background-color:#cccccc;clear:both;text-align:center;height: 100px; margin:0px;padding: 15px; padding-right: 80px}
+
+/*页眉---------------------------------------------------------------------------------------*/
+div#logo_containner {width: 500px;margin-left: 50px;float: left;}
+div#header_hint_containner {width: 275px;margin-right: 150px;float: right;}
+h1#logo {font-family:"Arial", "Tahoma", "黑体", "微软雅黑"; color: #666666}
+span#slogan{font-size: 15px}
+h2.header_hint{color: #666666; font-size: 18px}
+.header_hint span{cursor: pointer;}
+/*-------------------------------------------------------------------------------------------*/
+
+
+/*免费注册-----------------------------------------------------------------------------------*/
+div#register_container{width: 100%; height: 50px;background-color: #ed6639;line-height: 50px; text-align: center;}
+h1#register_free{color: #fff; font-size: 35px;}
+/*-------------------------------------------------------------------------------------------*/
+
+/*登录框-------------------------------------------------------------------------------------*/
+div#login_container {width: 300px; height: 260px; float: right; margin-right: 150px; margin-top: 85px;text-align: center;padding-top: 35px;
+	background-color:rgba(204,204,204,0.8); background-color:#cccccc\9; filter:alpha(opacity=80); }
+form#login {margin:0px 20px;}
+div#login_name_area {height: 55px}
+div#login_key_area {height: 55px}
+
+div#login_button_area {margin-top:10px;height: 80px}
+div#auto_login {display: inline;float: left;}
+div#forget_key{display: inline;; float: right;}
+div#login_hint {height: 25px}
+
+input.login_text {width: 98%; height: 30px; font-size: 20px}
+input#login_button {width: 100%; height: 38px;margin-top: 10px;}
+/*--------------------------------------------------------------------------------------------*/
+
+/*页脚----------------------------------------------------------------------------------------*/
+.about h3{color: :#ed6639;}
+div#copyright{float:left; margin-left:30px; width: 250px;height: 100px;}
+div.about{float:right; margin-left:50px; width: 120px;height: 100px;font-size: 12px}
+/*--------------------------------------------------------------------------------------------*/
+

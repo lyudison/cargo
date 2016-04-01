@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+        <meta name="viewport"content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="http://lib.vipsinaapp.com/js/jquery-mobile/1.3.1/jquery.mobile-1.3.1.css">
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/CustomerServiceRecord.css"> 
+        <script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src="http://lib.vipsinaapp.com/js/jquery-mobile/1.3.1/jquery.mobile-1.3.1.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/comment.css">
+        <script type="text/javascript" src="/static/js/comment.js"></script>
+        
+        <title>服务记录</title>
+        <style>
+
+        </style>            
+    </head>
+    
+  <body>  
+        <div data-role="page" id="pageone" >
+
+        
+          <div class="content">
+            <div class="wrapper">
+ 
+              <div class="main">
+                  <h1 class="title">2014</h1>
+                  <div class="inside-block">
+                        {% if len(record_list) == 0 %}
+                          <div class="noRecord" >
+                               <span class="noRecordText" >当前暂无服务记录。</span>
+                          </div>
+                        {% end %}
+                  </div>
+                  
+                  {% for record_list_month in record_list %}
+                  
+                  <div class="year close1">
+                      <div class="month" >
+                            <h2>
+                                <a href="#" onclick="setListHeight('{{len(record_list_month)}}','{{str(record_list_month[0][2]).split('-')[1]}}')" >
+                                {{str(record_list_month[0][2]).split('-')[1]}}月    <i></i>
+                                </a>
+                            </h2>
+                      </div>
+                      
+                    <div class="list" id="list{{str(record_list_month[0][2]).split('-')[1]}}" >
+                      <ul >
+                      {% for record in record_list_month %}
+                        <li class="cls highlight">
+                          <p class="date">{{record[2]}}</p><!-- 服务日期 -->
+                            <p class="intro"><span onclick="document.location.href='#'">{{record[3]}}</span></p> <!-- 车店名 -->
+                          <div class="more">
+                            <div>
+                                <span>服务内容:</span>
+                                <br/>
+                                <span style="display:block;float:right;">洗车</span>
+                            </div>
+                              <br/>
+                            <div class="total_price">
+                                <span style="">评价情况：</span>
+                                <br/>
+                                {%if record[4]%}
+                                    <span style="display:block;float:right;">已评价</span>
+                                {%else%}
+                                    <span style="padding-left:5px;float:right;" onclick="document.location.href='http://2.cargotest.sinaapp.com/customercomment?recordId={{record[0]}}&customer_id={{customer_id}}'">
+                                        <a href="#" onclick="send_msg({{record[3]}})" style="color:#FF9900;">未评价</a>
+                                    </span style="padding-left:5px;float:right;">
+                                {%end%}
+                            </div>
+                          </div>
+                        </li>
+                       {% end %}
+                      </ul>
+                    </div>
+             
+                  </div>
+                  {% end %}
+
+              </div>
+            </div>
+
+
+          </div>  
+        </div>  
+     
+  </body>
+</html>
+<script language=JavaScript>
+ $(document).ready(function(){
+      $(".main .year>.month>h2>a").click(function(e){
+           e.preventDefault();               
+           $(this).parents(".year").toggleClass("close1");
+       });
+      
+  });
+
+  function setListHeight(recordNumPerMonth,recordMonth){
+       var idname="list"+recordMonth;
+       var myheight = document.getElementById(idname).style.height=270*recordNumPerMonth+"px";
+  }
+</script> 

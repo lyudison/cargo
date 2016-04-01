@@ -1,0 +1,104 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+    <style type="text/css">  
+    body, html,#my-map {width: 100%;height: 100%;overflow: hidden;hidden;margin:0;}  
+    </style>  
+    <script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=wZNqARgljDouaTQYxPFEEm7k&v=1.0"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wZNqARgljDouaTQYxPFEEm7k"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+    <title>地图导航</title>  
+    </head>  
+    <body>  
+        <div id="my-map"></div>  
+    </body>
+</html>
+<script type="text/javascript">
+if(!navigator.geolocation)
+{
+    alert("cannot get current location!");
+}
+
+var geo = navigator.geolocation.getCurrentPosition(successCallback, errorCallback, 
+    {enableHighAccuracy:true, maximumAge:30000, timeout:27000});
+
+function successCallback(position)
+{
+    // get current position
+    var lng = position.coords.longitude;
+    var lat = position.coords.latitude;
+    var gpsPoint = new BMap.Point(lng,lat);
+
+    // alert("lng:"+lng+" lat:"+lat);
+
+    BMap.Convertor.translate(gpsPoint,0,translateCallback);     //真实经纬度转成百度坐标
+}
+
+function translateCallback(point)
+{
+    // get origin
+    var ori_lat = point.lat;
+    var ori_lng = point.lng;
+    // alert("ori_lng:"+ori_lng+" ori_lat:"+ori_lat);
+
+    // get destination
+    var des_lat = {{lat}};
+    var des_lng = {{lng}};
+    var des_name = "{{name}}";
+    // alert("des_lng:"+des_lng+" des_lat:"+des_lat+"\ndes_name:"+des_name);
+
+    // init map
+    var map = new BMap.Map("my-map");
+    map.centerAndZoom(new BMap.Point(ori_lng, ori_lat), 14);
+
+    // set parameters
+    var start = {
+        latlng:new BMap.Point(ori_lng, ori_lat),
+        name:"当前位置"
+    }
+    var end = {
+        latlng:new BMap.Point(des_lng, des_lat),
+        name:des_name
+    }
+    var opts = {
+        mode:BMAP_MODE_DRIVING,
+        // mode:BMAP_MODE_NAVIGATION,
+        region:"广州"
+    }
+    // map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);    
+    // var start = {  
+    //     latlng:new BMap.Point(116.404, 39.915),  
+    //     name:"故宫"  
+    // }     
+    // var end = {  
+    //     latlng:new BMap.Point(116.380825,39.915455),  
+    //     name:"肯德基（汉光店）"  
+    // }  
+    // var opts = {  
+    //     mode:BMAP_MODE_DRIVING,//公交、驾车、导航均修改该参数  
+    //     region:"北京"  
+    // }  
+
+    // direct to Baidu map navigator
+    var routeSearch=new BMap.RouteSearch();
+    routeSearch.routeCall(start,end,opts);
+}
+
+function errorCallback(error)
+{
+    switch(error.code){
+    case error.TIMEOUT:
+        alert("连接超时，请重试");
+        break;
+    case error.PERMISSION_DENIED:
+        alert("您拒绝了使用位置共享服务，查询已取消");
+        break;
+    case error.POSITION_UNAVAILABLE:
+        alert("亲爱的火星网友，非常抱歉，我们暂时无法为您所在的星球提供位置服务");
+        break;
+    }
+}
+
+</script>

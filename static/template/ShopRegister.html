@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link rel="stylesheet" type="text/css" href="/static/css/ShopRegister.css"/>
+<script type="text/javascript" src="/static/js/register-ui.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div id="container">
+
+	<div id="header">
+		<img src="/static/img/logo/cargo logo white 200X60.png" id="logo">
+		<table id="page_title">
+			<tr>
+				<td></td>
+				<td><h1 id="title">注册</h1></td>
+			</tr>
+		</table>
+		<a href="/shoplogin"><img src="/static/img/icon/back_icon.png" id="back"></a>
+	</div>
+
+	<hr/>
+
+	<div id="content">
+		<form id="register_form" action="/shopregister" method="post" enctype='multipart/form-data'>
+
+		<div id="username_area" class="register_item">
+			<p>登录名：</p><input type="text" name="username" onmouseover="setBlack('hint1')" onmouseout="setGray('hint1')"><div class="error_hint">登录名已存在！</div>
+		</div>
+		<p id="hint1" class="register_hint">6~18个字符，可使用字母、数字、下划线，需以字母开头</p>
+
+		<div id="password_area" class="register_item">
+			<p>密码：</p><input type="text"><div class="error_hint">密码格式错误</div>
+		</div>
+		<p class="register_hint">6~16个字符，区分大小写</p>
+
+		<div id="password_area" class="register_item">
+			<p>确认密码：</p><input type="text" name="password"><div class="error_hint">与密码不相同</div>
+		</div>
+		<p class="register_hint">再次输入密码</p>
+
+		<div id="shopname_area" class="register_item">
+			<p>车店名：</p><input type="text" name="shopname"><div class="error_hint">??</div>
+		</div>
+		<p class="register_hint">请输入注册车店的全称</p>
+
+		<div id="shopname_area" class="register_item">
+			<p>地址：</p><input type="text" name="address"><div class="error_hint">??</div>
+		</div>
+		<p class="register_hint">&nbsp;</p>
+
+		<div id="shoptel_area" class="register_item">
+			<p>联系电话：</p><input type="text" name="shopphone"><div class="error_hint">??</div>
+		</div>
+		<p class="register_hint">请输入车店的联系电话</p>
+
+		<div id="shopname_area" class="register_item">
+			<p>负责人姓名：</p><input type="text" name="ownername"><div class="error_hint">??</div>
+		</div>
+		<p class="register_hint">&nbsp;</p>
+
+		<div id="shopname_area" class="register_item">
+			<p>负责人电话：</p><input type="text" name="ownerphone"><div class="error_hint">??</div>
+		</div>
+		<p class="register_hint">&nbsp;</p>
+
+		<div id="shopname_area" class="register_item">
+			<p>工商营业执照：</p><input type="file" name="business_certificate"><div class="error_hint">??</div>
+		</div>
+		<p class="register_hint">&nbsp;</p>
+		<div id="shopname_area" class="register_item">
+			<p>交通运输证照：</p><input type="file" name="transport_certificate"><div class="error_hint">??</div>
+		</div>
+		<p class="register_hint">&nbsp;</p>
+		<div id="shopname_area" class="register_item">
+			<p>其他资格证明：</p><input type="file" name="other_certificate"><div class="error_hint">??</div>
+		</div>
+		<p class="register_hint">&nbsp;</p>
+		
+		<div id="submit_area">
+			<input id="submit_button" type="submit" value="注册">
+		</div>
+		</form>
+	</div>
+	<hr/>
+	<div id="footer">
+		<div id="copyright">
+				<p>车GO汽车服务平台保留所有权利</p>
+			</div>
+			<div id="about">
+				<h3>帮助中心</h3>
+				<p>问题反馈</p>
+				<p>用户协议</p>
+				<p>免责声明</p>
+			</div>
+			<div id="about">
+				<h3>关于车GO</h3>
+				<p>关于平台</p>
+				<p>招聘</p>
+			</div>
+	</div>
+
+</div>
+
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+	// ajax check existence of username
+});
+</script>

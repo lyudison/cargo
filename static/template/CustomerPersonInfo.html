@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>  
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+        <meta name="viewport"content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/CustomerPersonInfo.css">
+        <script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+    <style> 
+   
+    </style>
+        
+  <script type="text/javascript">
+      $("input").css("border","0px");
+      $(".label-name").css({"background":"#FFFFFF","font-weight":"700","font-style":"italic"});
+      $(".label-phone").css({"background-color":"#FFFFFF","font-weight":"700","font-style":"italic"});
+      $(".label-carNum").css({"background-color":"#FFFFFF","font-weight":"700","font-style":"italic"});
+
+      function formSubmit(){
+          $("#formid").submit();
+      }
+       function selectValue(sId,value){  
+           var ops = document.getElementById(sId);
+           ops.value = value;
+           for(var i=0;i<ops.length; i++){  
+               var tempValue = ops[i].value;
+               ops[i].selected = false;
+               if(tempValue == value)  
+               {  
+                   ops[i].selected = true;  
+               }  
+           }  
+      }
+      $(document).ready(function(){ 
+        var sex_value='{{customer_info[2]}}';
+        if(sex_value == '0'){
+            $("#male").attr("checked","true");
+            $("#female").removeAttr("checked");
+          }
+        else{
+            // $(".male").removeAttr("checked");
+            $("#female").attr("checked","true");
+            $("#male").removeAttr("checked");
+        }
+        $("input").css("border","0px");
+        selectValue('province','{{customer_info[5]}}');
+        selectValue('city','{{customer_info[6]}}');  
+
+      $("#update").click(function(){
+          $(".label-name").removeAttr("readonly");
+            $(".label-phone").removeAttr("readonly");
+            $(".label-carNum").removeAttr("readonly");                    
+            $(".label-name").css({"background-color":"#EEEEEE","font-weight":"normal","font-style":"normal"});
+            $(".label-phone").css({"background-color":"#EEEEEE","font-weight":"normal","font-style":"normal"});
+            $(".label-carNum").css({"background-color":"#EEEEEE","font-weight":"normal","font-style":"normal"});
+            
+            $("input").css("border","2px solid #AAAAAA");
+
+
+      
+      });
+     $("#myForm").click(function(){
+        $(".label-name").attr("readonly","readonly");
+          $(".label-phone").attr("readonly","readonly");
+          $(".label-carNum").attr("readonly","readonly");
+          $(".label-name").css({"background-color":"#FFFFFF","font-weight":"700","font-style":"italic"});
+          $(".label-phone").css({"background-color":"#FFFFFF","font-weight":"700","font-style":"italic"});
+          $(".label-carNum").css({"background-color":"#FFFFFF","font-weight":"700","font-style":"italic"});
+          $("input").css("border","0px");
+      });
+  
+  });
+                 
+            
+                
+      </script>
+        <title>个人信息</title>    
+  </head> 
+  <body>
+        <div data-role="page" id="pageone" >    
+            <div class="page">          
+                <form id="formid" name= "myForm"  action = '/customerpersoninfo' method="post" >
+                    <div class="input-row">
+                         <label for="firstname" style="text-align:left;">
+                             <span  class="input-text" >姓名： </span>
+                             <div class="input-content">
+                                <input   class="label-name" name="customerName" required="required" placeholder="输入姓名" readonly="readonly" value="{{customer_info[1]}}">   
+                             </div>
+                           </label>
+                    </div>
+                    <div class="input-row">
+                         <label for="firstname" style="text-align:left;">
+                             <span  class="input-text" >电话： </span>
+                             <div class="input-content">
+                              <input  class="label-phone" name="customerPhone" required="required" placeholder="输入电话" readonly="readonly" value="{{customer_info[3]}}" >  
+                             </div>
+                           </label>
+                    </div>
+                    <div class="input-row">
+                        <span  class="input-text"  style=""  >性别： </span>  
+                        <label for="male" style="margin-right:20px;">
+                          <input type="radio" name="sex" class="male" id="male" value="0" style="" checked="checked" >男 
+                        </label>   
+                        <label for="female">
+                          <input type="radio" name="sex" class="female" id="female" value="1" style="" >女 
+                        </label>    
+
+                    </div>
+                    
+     
+                    
+                    
+                    <div class="input-row" style="height:102px;">
+                         <label for="firstname2" style="text-align:right;margin-top:10px;">
+                             <span class="input-text" style="float:left;margin-top:5px;">车牌： </span>
+                             <div class="select-left" style="">
+                                 <select id="province" name="plateProvince" readonly="readonly" value="{{customer_info[5]}}">
+                    <option value="粤">粤</option>
+                                    <option value="京">京</option>
+                                    <option value="津">津</option>
+                                    <option value="沪">沪</option>
+                                    <option value="渝">渝</option>
+                                    <option value="冀">冀</option>
+                                    <option value="晋">晋</option>
+                                    <option value="辽">辽</option>
+                                    <option value="吉">吉</option>
+                                    <option value="黑">黑</option>
+                                    <option value="苏">苏</option>
+                                    <option value="浙">浙</option>
+                                    <option value="皖">皖</option>
+                                    <option value="闽">闽</option>
+                                    <option value="赣">赣</option>
+                                    <option value="鲁">鲁</option>
+                                    <option value="豫">豫</option>
+                                    <option value="鄂">鄂</option>
+                                    <option value="湘">湘</option>
+                                    <option value="琼">琼</option>
+                                    <option value="川">川</option>
+                                    <option value="贵">贵</option>
+                                    <option value="黔">黔</option>
+                                    <option value="滇">滇</option>
+                                    <option value="云">云</option>
+                                    <option value="陕">陕</option>
+                                    <option value="秦">秦</option>
+                                    <option value="甘">甘</option>
+                                    <option value="陇">陇</option>
+                                    <option value="青">青</option>
+                                    <option value="藏">藏</option>
+                                    <option value="桂">桂</option>
+                                    <option value="宁">宁</option>
+                                    <option value="内">内</option>
+                                    <option value="新">新</option>
+                                    <option value="港">港</option>
+                                    <option value="新">新</option>
+                                </select>
+                             </div>
+                             <div class="select-right" style="display:inline-block;float:left;margin-left:5px;">
+                             <select id="city" name="plateCity" value="{{customer_info[6]}}" style="margin-left:5px;">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                    <option value="G">G</option>
+                                    <option value="H">H</option>
+                                    <option value="I">I</option>
+                                    <option value="J">J</option>
+                                    <option value="K">K</option>
+                                    <option value="L">L</option>
+                                    <option value="M">M</option>
+                                    <option value="N">N</option>
+                                    <option value="O">O</option>
+                                    <option value="P">P</option>
+                                    <option value="Q">Q</option>
+                                    <option value="R">R</option>
+                                    <option value="S">S</option>
+                                    <option value="T">T</option>
+                                    <option value="U">U</option>
+                                    <option value="V">V</option>
+                                    <option value="W">W</option>
+                                    <option value="X">X</option>
+                                    <option value="Y">Y</option>
+                                    <option value="Z">Z</option>
+                                    
+                                </select>
+                             </div>
+                           </label>
+                  
+                        <label style="text-align:left;margin-top:10px;">
+                             <span  style="display:inline-block;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <div class="input-content">
+                                 <input  class="label-carNum" name="plateNum" required="required" placeholder="输入车牌号" readonly="readonly" value="{{customer_info[7]}}" >         
+                            </div>
+                           </label>
+                     </div>
+                     
+                      <div class="input-row mybtn" style="height:66px;">
+                          <div class="mybtn" style="margin-top:10px;">
+
+                              <input  id="myForm" type="button" data-role="button" onclick="formSubmit()" value="确定"style="background:#3399CC;color:white;">
+
+                              <input  id="update" type="button" data-role="button"  value="编辑" style="background:#3399CC;color:white;">
+                          </div>
+                     </div>
+                </form>
+            </div>                
+        </div>
+    </body>
+</html>
