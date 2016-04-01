@@ -1,4 +1,4 @@
-# Desciprtion
+# Description
 
 Cargo is a Car Service Management System which let car owners make washing service reservation, and allows service providers to manage their business without having to change their original business process. 
 
